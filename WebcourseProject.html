@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="projectstyle.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=League+Spartan:wght@100..900&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+    <header>
+       
+
+       <div class="navbar">
+
+        <div class="lgcontainer">
+
+            <img src="images/ArmwareLogo.png" id="headerlogo" alt="armware logo">
+            
+        </div>
+        
+        <ul class="league-spartan">
+            <li>Products</li>
+            <li>MatchSpecs</li>
+            <li>Partners</li>
+            <li>Find Retailers</li>
+           
+        </ul>
+        
+        <div class="loginicon">
+            <p class="league-spartan">Welcome Back!</p>
+            <img src="images/loginICON.png" alt="login icon">
+        </div>
+
+       </div>
+        
+       
+    </header>
+
+    <div class="partsbox">
+        <div class="gpubox">
+            <video src="category vids/AllGPUsModel0001-0030.mkv" class="hoverVideo" type="video/mkv"></video>
+            
+        </div>
+    
+        <div class="cpubox">
+            <video src="category vids/ProcessorsV2.00001-0030.mkv" class="hoverVideo" type="video/mkv"></video>
+        </div>
+    
+        <div class="mobobox">
+            <video src="category vids/moboHomepage0001-0030.mkv" class="hoverVideo" type="video/mkv"></video>
+        </div>
+    
+        <div class="kbmbox">
+            <video src="category vids/KBMfinal0001-0030.mkv" class="hoverVideo" type="video/mkv"></video>
+        </div>
+    </div>
+    
+
+
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const videos = document.querySelectorAll('.hoverVideo');
+    
+            videos.forEach(video => {
+                let reverseInterval;
+    
+                video.addEventListener('mouseover', function() {
+                    clearInterval(reverseInterval); // Stop reversing if it was reversing
+                    video.play();
+                });
+    
+                video.addEventListener('mouseout', function() {
+                    video.pause(); // Pause the video before reversing
+                    reverseInterval = setInterval(function() {
+                        if (video.currentTime > 0) {
+                            video.currentTime -= 0.1; // Move video backward
+                        } else {
+                            clearInterval(reverseInterval); // Stop when it reaches the beginning
+                        }
+                    }, 50); // Adjust the interval for smoother reverse effect
+                });
+            });
+        });
+    </script>
+    
+
+</body>
+</html>
