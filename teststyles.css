@@ -47,7 +47,7 @@ body{
     display: flex;
     justify-content: space-between;
     align-items: center;
-
+    z-index: 1000;
 
     position: fixed;
     top: 0;
@@ -109,6 +109,11 @@ body{
     height: 65px;
 }
 
+/*---------------------------------------------*/
+
+
+
+/*----------------ABOUT US---------------------*/
 h1{
     margin-top: 100px;
     margin-bottom: 0;
@@ -128,13 +133,47 @@ h2{
 .textbox {
      width: 80%;
      height: auto;
-     background-color: rgba(63, 58, 58, 0.357);
+     background-color: rgb(24, 23, 23);
      text-align: center;
      margin: 0 auto;
      line-height: 1.5;
      border-radius: 100px;
+     position: relative;
 }
-   
+
+@property --angle{
+    syntax: "<angle>";
+    initial-value: 0deg;
+    inherits: false;
+}
+
+.textbox::after, .textbox::before{
+    content: '';
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background: conic-gradient(from var(--angle), rgb(0, 157, 255), rgb(211, 80, 102), white, rgb(0, 157, 255));
+    top: 50%;
+    left: 50%;
+    translate: -50% -50%;
+    z-index: -1;
+    border-radius: 100px;
+    padding: 1px;
+    animation: 10s spin linear infinite;
+}
+
+.textbox::before{
+    filter: blur(15rem);
+}
+@keyframes spin{
+    from{
+        --angle: 0deg;
+    }
+    to{
+        --angle:360deg;
+    }
+}
+
 .textbox p{
     font-family: "Poppins", sans-serif;
      font-weight: 400;
@@ -156,15 +195,18 @@ h2{
 }
 
 
+
 .textbox ul{
     list-style: none;
 }
 
 .textbox li{
+    opacity: 100%;
     display: inline;
     margin-left: 30px;
     color: white;
     text-align: left;
+    animation:10s spin linear infinite;
 }
 
 .textbox li a{
@@ -175,4 +217,24 @@ h2{
 .textbox li a:hover{
     text-decoration: underline;
     color: white;
+   
+}
+
+
+.partnerscontainer {
+    padding: 0;
+    height: 150px;
+    width: 50%;
+    margin: 0 auto;
+    background-color: rgba(255, 0, 0, 0);
+    text-align: center;
+}
+
+#firstPartner, #secondPartner {
+    height: 100%;
+    width: 20%;
+    background-color: black;
+    border-radius: 100px;
+    display: inline-block; 
+    margin: 0 10px;
 }
