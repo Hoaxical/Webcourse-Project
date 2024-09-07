@@ -12,14 +12,19 @@
     <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Anton&family=League+Spartan:wght@100..900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Tomorrow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
 </head>
 
 <body>
+    
 
 <header>
 
     <div class="navbarExterior">
-        <img src="images/ArmwareLogo.png" id="logo" alt="ArmWare logo">
+        <a href="armwareHomepage.html"><img src="images/ArmwareLogo.png" 
+            id="logo" alt="ArmWare logo">
+        </a>
 
                 <div class="navbarInterior">
 
@@ -42,6 +47,12 @@
 
 </header>
 
+
+<!-------------------------------------------------------------------------------------->
+<!-------------------------------------------------------------------------------------->
+
+
+
 <h1 class="bebas-neue-regular">ArmWare</h1>
 <h2 style="color: white;">Gamers Armed To The Max</h2>
 
@@ -57,16 +68,16 @@
 
     <p>Components</p>
     <ul>
-        <li><a href="">Graphics Processing Unit (GPU)</a></li>
-        <li><a href="">Central Processing Unit (CPU)</a></li>
-        <li><a href="">Motherboard</a></li>
+        <li class="tomorrow-regular"><a href="">Graphics Processing Unit (GPU)</a></li>
+        <li class="tomorrow-regular"><a href="">Central Processing Unit (CPU)</a></li>
+        <li class="tomorrow-regular"><a href="">Motherboard</a></li>
     </ul>
 
     
     <ul>
-        <li><a href="">Keyboard</a></li>
-        <li><a href="">Mouse</a></li>
-        <li><a href="">Headset</a></li>
+        <li class="tomorrow-regular"><a href="">Keyboard</a></li>
+        <li class="tomorrow-regular"><a href="">Mouse</a></li>
+        <li class="tomorrow-regular"><a href="">Headset</a></li>
     </ul>
 
     <p>At ArmWare, performance, reliability, and quality 
@@ -106,18 +117,121 @@
             
         </div>
     
-    </div>
+</div>
+<div class="faqselector">
     
-    <h4>Frequently Asked Questions</h4>
-    <div class="FAQbox">
-    
+    <h4 class="anton-regular">Frequently Asked Questions</h4>
+    <select id="freqAsked" class="league-spartan">
+        <option value="" selected disabled>Select a question</option>
+        <option value="q1">What makes Armware unique?</option>
+        <option value="q2">Do you offer custom PC builds?</option>
+        <option value="q3">Can I upgrade my system with Armware components?</option>
+        <option value="q4">Does Armware offer technical support?</option>
+        <option value="q5">Are Armware products suitable for beginners?</option>
+    </select>
+
+</div>
+    <div id="q1" class="answer">
+
+        <p  class="tomorrow-regular">ArmWare is not only a retailer but also a manufacturer, 
+            which allows us to maintain strict quality control 
+            and offer products that are specifically designed 
+            to work seamlessly together. We focus on delivering 
+            high-performance hardware that meets the 
+            needs of both gamers and creators.</p>
+
     </div>
+
+    <div id="q2" class="answer">
+
+        <p  class="tomorrow-regular">Absolutely! ArmWare specializes in helping customers 
+            select the perfect components for custom builds. 
+            Whether you're looking for a gaming powerhouse or 
+            a workstation for demanding tasks, our team is ready 
+            to assist in putting together a 
+            machine tailored to your exact needs.</p>
+
+    </div>
+
+    <div id="q3" class="answer">
+
+        <p  class="tomorrow-regular">Yes, all our components are designed with compatibility in mind, 
+            ensuring that you can upgrade your system without any hassle. 
+            We offer processors, GPUs, motherboards, and more 
+            that are easy to integrate into your existing setup.</p>
+
+    </div>
+
+    <div id="q4" class="answer">
+
+        <p  class="tomorrow-regular">Yes, we provide comprehensive support to ensure your 
+            products are working perfectly. Our team of experts 
+            is available to assist with installation, 
+            troubleshooting, and any questions 
+            you may have about your ArmWare components.</p>
+
+    </div>
+
+<div id="q5" class="answer">
+
+<p  class="tomorrow-regular">Definitely! We cater to both beginners and experts. 
+    Our products come with detailed guides, and our 
+    support team is always available to help you get 
+    started with your first build.</p>
 
 </div>
 
 
+<!-------------------------------------------------------------------------------------->
+<!-------------------------------------------------------------------------------------->
 
-    
+
+
+<footer>
+    <div class="footerheader">
+        <p>&copy; 2024 ArmWare. This is not an official website</p>
+        <div class="footerbar">
+        
+            <ul>
+                <li>Quick Links</li>
+                <li><a href="armwareHomepage.html">Homepage</a></li>
+                <li><a href="Products.html">Products</a></li>
+                <li><a href="NearbyRetailers">Nearby Retailers</a></li>
+                <li><a href="MatchSpecs.html">MatchSpecs</a></li>
+                <li><a href="AboutUs.html">About Us</a></li>
+            </ul>
+
+            <ul>
+                <li>Socials</li>
+                <li><a href="https://x.com/home">X (Twitter)</a></li>
+                <li><a href="https://www.youtube.com/">YouTube</a></li>
+
+            </ul>
+            <p>
+        </div>
+    </div>
+</footer>
+
+
+<!-------------------------------------------------------------------------------------->
+<!-------------------------------------------------------------------------------------->
+
+
+
+<script>
+    document.getElementById('freqAsked').addEventListener('change', function() {
+        // Hide all answers
+        document.querySelectorAll('.answer').forEach(function(answer) {
+            answer.style.display = 'none';
+        });
+
+        // Show the selected answer
+        var selectedQuestion = this.value;
+        if (selectedQuestion) {
+            document.getElementById(selectedQuestion).style.display = 'block';
+        }
+    });
+</script>
 
     
 </body>
