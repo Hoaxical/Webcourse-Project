@@ -131,6 +131,7 @@
     </select>
 
 </div>
+
     <div id="q1" class="answer">
 
         <p  class="tomorrow-regular">ArmWare is not only a retailer but also a manufacturer, 
@@ -172,14 +173,14 @@
 
     </div>
 
-<div id="q5" class="answer">
+    <div id="q5" class="answer">    
 
-<p  class="tomorrow-regular">Definitely! We cater to both beginners and experts. 
-    Our products come with detailed guides, and our 
-    support team is always available to help you get 
-    started with your first build.</p>
+        <p  class="tomorrow-regular">Definitely! We cater to both beginners and experts. 
+        Our products come with detailed guides, and our 
+        support team is always available to help you get 
+        started with your first build.</p>
 
-</div>
+    </div>
 
 
 <!-------------------------------------------------------------------------------------->
@@ -220,12 +221,10 @@
 
 <script>
     document.getElementById('freqAsked').addEventListener('change', function() {
-        // Hide all answers
         document.querySelectorAll('.answer').forEach(function(answer) {
             answer.style.display = 'none';
         });
 
-        // Show the selected answer
         var selectedQuestion = this.value;
         if (selectedQuestion) {
             document.getElementById(selectedQuestion).style.display = 'block';

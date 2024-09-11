@@ -26,6 +26,12 @@
     font-weight: 400;
     font-style: normal;
   }
+
+  .bruno-ace-sc-regular {
+    font-family: "Bruno Ace SC", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+  }
   
 
 /*---------------------------------------*/
@@ -36,6 +42,7 @@ body{
     margin: 0;
     padding: 0;
     background-color: black;
+    
 }
 /*---------------------------------------*/
 
@@ -277,6 +284,7 @@ p{
     border-color: white;
     border-radius: 20px;
     font-size: large;
+    text-align: center;
 }
 
 .faqselector select:hover{
@@ -297,6 +305,7 @@ p{
     background-color: #000000;
     text-align: justify;
     font-size: large;
+    margin-bottom: 0;
 }
 
 /*------------------------------------*/
@@ -307,10 +316,10 @@ p{
 
 .footerheader{
     text-align: center;
-    margin-top: 50px;
     background-color: rgba(32, 29, 29, 0);
     width: 100%;
     height: auto;
+    margin-top: auto;
 }
 
 .footerbar {
@@ -360,12 +369,213 @@ p{
 
 /*------------NEWS CONTAINER----------*/
 
-.newscontainer{
-    margin: 0 auto;
-    margin-top: 175px;
-    width: 75%;
-    height: 30rem;
-    background-color: grey;
+.white-box {
+    width: 60%;
+    height: 70%;
+    background-color: rgb(0, 0, 0);
+    position: absolute;
+    top: 20%; /* Center vertically */
+    right: 10%; /* Push it to the right side */
+    
+}
+
+.white-box::after, .white-box::before{
+    content: '';
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background: conic-gradient(from var(--angle), rgb(245, 60, 60), rgb(118, 36, 249), rgb(253, 74, 74));
+    top: 50%;
+    left: 50%;
+    translate: -50% -50%;
+    z-index: -1;
+    padding: 1px;
+    animation: 10s spin linear infinite;
+}
+
+.white-box::before{
+    filter: blur(1rem);
+   
+}
+
+.news-content{
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    color: white; /* Adjust text color for contrast */
+    z-index: 1; /* Ensure it appears above the background */
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+    display: flex;
+}
+
+.news-content.active{
+    opacity: 1;
 }
 
 
+
+.news-content img{
+    width: 50%;
+    height: 100%;
+    background-color: red;
+    display: flex;
+}
+
+.whitebox-text{
+    position: absolute;
+    right: 0;
+    height: 100%;
+    width: 50%;
+    background: rgba(128, 128, 128, 0.17);
+}
+
+.whitebox-text p:nth-child(1){
+    text-decoration: underline;
+    text-align: center;
+    font-size: 35px;
+}
+
+.whitebox-text p{
+    font-size: larger;
+    justify-content: left;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.whitebox-text a input[type="button"]{
+    color: rgba(255, 255, 255, 0.823);
+    margin-left: 1px;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    transition: 0.5s all ease;
+}
+
+.whitebox-text a input[type="button"]:hover{
+    color: white;
+    text-shadow: -2px -1px 10px rgba(255,255,255,50);
+}
+
+
+.slider-button-last, .slider-button-next {
+    position: absolute;
+    height: 10%;
+    width: 10%;
+    background: transparent;
+}
+
+.slider-button-last {
+    left: 20%; 
+    top: 50%;    
+}
+
+.slider-button-next {
+    right: 0; 
+    top: 50%; 
+}
+
+.slider-button-last button, .slider-button-next button {
+    height: 100%;
+    width: 100%;
+    background-color: transparent;
+    border: none;
+}
+
+.slider-button-next button img {
+    height: 100%;
+    width: 80%;
+    background: transparent;
+    cursor: pointer;
+    transition: 0.2s all ease-in-out;
+}
+
+.slider-button-last button img{
+    rotate: 180deg;
+    height: 100%;
+    width: 80%;
+    background: transparent;
+    cursor: pointer;
+    transition: 0.2s width ease-out;
+}
+
+.slider-button-next button img:hover, .slider-button-last button img:hover {
+    width: 100%;
+}
+
+.whats-new {
+    color: white;
+    background: transparent;
+    height: 200px;
+    width: 200px;
+    position: absolute; /* Absolute positioning */
+    left: 5%; /* Adjust based on your layout */
+    top: 25%; /* Adjust based on your layout */
+    z-index: 10; /* Ensure it appears above other elements */
+}
+
+.whats-new  p:nth-child(1){
+    font-size: 35px;
+    margin-bottom: -20px;
+}
+
+.whats-new p:nth-child(2){
+    margin-top: 0;
+    font-size: 80px;
+}
+
+/*---------------------------------------------------*/
+
+
+/*-------------------PRODUCTS------------------------*/
+
+.partsbox {
+    margin: 0 auto;
+    margin-top: 10%;
+    display: flex;
+    background: rgb(7, 7, 7); /* Background color for partsbox */
+    width: 100%;
+    height: 100%; /* Height for the partsbox */
+}
+
+
+.gpubox, .cpubox, .mobobox, .kbmbox {
+    width: 100%;
+    height: 100%;
+    background: #000000; /* Optional background color for individual boxes */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 5px;
+    transition: transform 0.35s ease-in-out;
+}
+ .gpubox:hover, .cpubox:hover, .mobobox:hover, .kbmbox:hover{
+    transform: scale(1.02);
+}
+
+video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.text-overlay {
+    position: absolute;
+    top: 90%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 2rem;
+    color: white;
+    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    transition: opacity 0.35s ease-in-out;
+    pointer-events: none; /* Prevents any interaction with the text */
+}
+
+/* Make the text visible on hover */
+.gpubox:hover .text-overlay, .cpubox:hover .text-overlay, 
+.mobobox:hover .text-overlay, .kbmbox:hover .text-overlay {
+    opacity: 1;
+}

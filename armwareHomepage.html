@@ -3,7 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Testpage</title>
+    <title>Armware</title>
+
+    <link rel="icon" type="image/png" href="images/ArmwareLogo.png">
 
     <link rel="stylesheet" href="teststyles.css">
 
@@ -13,6 +15,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Anton&family=League+Spartan:wght@100..900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Tomorrow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bruno+Ace+SC&family=Tomorrow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
 
 </head>
 
@@ -47,24 +50,129 @@
     
     </header>
 
-    
-<!-------------------------------------------------------------------------------------->
-<!-------------------------------------------------------------------------------------->
 
-<div class="newscontainer">
-<p>This is a box</p>
+<!-------------------------------------------------------------------------------------->
+<!-------------------------------------------------------------------------------------->
+<div class="white-box">
+    <div id="slide1" class="news-content active">
+        <img src="images/homepageimage.png" alt="homepage img">
+        <div class="whitebox-text">
+            <p class="anton-regular">Welcome to Armware</p>
+            <p class="tomorrow-regular">We are the ultimate destination for high-performance computer hardware tailored to meet the needs of PC enthusiasts and gamers.</p>
+            <p class="tomorrow-regular">As a proud manufacturer and retailer, ArmWare is committed to providing cutting-edge technology for building the perfect rig.</p>
+            <p class="tomorrow-regular">Whether you're a seasoned builder or just getting started, we offer a wide range of computer products.
+            <a href="AboutUs.html" alt="About Us page"><input type="button" value="Read More"></a></p>   
+        </div>
+    </div>
+    
+    <div id="slide2" class="news-content">
+        <img src="images/GPUs.png" alt="homepage img">
+        <div class="whitebox-text">
+            <p class="anton-regular">Introducing GPUs</p>
+            <p class="tomorrow-regular">Our high quality GPUs.</p>
+            <p class="tomorrow-regular">We make the best GPUs</p>
+            <p class="tomorrow-regular">Max out your game performance (framerates). 4K 120 FPS MINIMUM GURANTEED.
+            <a href="GPUs.html" alt="GPU page"><input type="button" value="Read More"></a></p>   
+        </div>
+    </div>
+
+    <div id="slide3" class="news-content">
+        <img src="images/mobo.png" alt="homepage img">
+        <div class="whitebox-text">
+            <p class="anton-regular">Introducing Motherboards</p>
+            <p class="tomorrow-regular">Our high quality Motherboard.</p>
+            <p class="tomorrow-regular">We make the best Universal Motherboard</p>
+            <p class="tomorrow-regular">Fits all types of components such as CPU, Ram, fans, AIOs and everything else! It comes with the most advanced software you will ever need for customization and modifications!
+            <a href="motherboards.html" alt="motherboard page"><input type="button" value="Read More"></a></p>   
+        </div>
+    </div>
 </div>
-  
+
+<div class="slider-button-last">
+    <button id="slide_last">
+        <img src="images/icon-arrow.png" alt="Previous">
+    </button>
+</div>
+
+<div class="slider-button-next">
+    <button id="slider_next">
+        <img src="images/icon-arrow.png" alt="Next">
+    </button>
+</div>
+
+<div class="whats-new">
+<p class="bruno-ace-sc-regular">What's</p>
+<p class="bruno-ace-sc-regular">New</p>
+</div>
+
+<p style="margin-top: 60%; margin-bottom: 0; text-align: center;">&copy; 2024 ArmWare. This is not an official website</p>
+
 <!-------------------------------------------------------------------------------------->
 <!-------------------------footer------------------------------------------------------------->
 
 
+<footer>
+    <div class="footerheader">
+        <p></p>
+        <div class="footerbar">
+        
+            <ul>
+                <li>Quick Links</li>
+                <li><a href="armwareHomepage.html">Homepage</a></li>
+                <li><a href="Products.html">Products</a></li>
+                <li><a href="NearbyRetailers">Nearby Retailers</a></li>
+                <li><a href="MatchSpecs.html">MatchSpecs</a></li>
+                <li><a href="AboutUs.html">About Us</a></li>
+            </ul>
+
+            <ul>
+                <li>Socials</li>
+                <li><a href="https://x.com/home">X (Twitter)</a></li>
+                <li><a href="https://www.youtube.com/">YouTube</a></li>
+
+            </ul>
+            <p>
+        </div>
+    </div>
+</footer>
+
 
 
 <!-------------------------------------------------------------------------------------->
 <!-------------------------------------------------------------------------------------->
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const slides = document.querySelectorAll('.news-content');
+        let currentIndex = 0;
+    
+        function showSlide(index) {
+            slides.forEach((slide, i) => {
+                slide.classList.toggle('active', i === index);
+            });
+            currentIndex = index;
+        }
+    
+        function showNextSlide() {
+            const nextIndex = (currentIndex + 1) % slides.length;
+            showSlide(nextIndex);
+        }
+    
+        function showLastSlide() {
+            const prevIndex = (currentIndex - 1 + slides.length) % slides.length;
+            showSlide(prevIndex);
+        }
+    
+        document.getElementById('slider_next').addEventListener('click', showNextSlide);
+        document.getElementById('slide_last').addEventListener('click', showLastSlide);
+    
+        // Initialize the first slide
+        showSlide(currentIndex);
+        
+        // Automatically move to the next slide every 10 seconds
+        setInterval(showNextSlide, 7500); // 10000 milliseconds = 10 seconds
+    });
+</script>
 
-   
 </body>
 </html>
 
