@@ -579,3 +579,68 @@ video {
 .mobobox:hover .text-overlay, .kbmbox:hover .text-overlay {
     opacity: 1;
 }
+
+
+/*---------------------------------------------------------------*/
+
+/*-----------------------NEARBY RETAILERS------------------------*/
+
+.mapcontainer{
+    margin: 0 auto;
+    margin-top: 3%;
+    height: 100%;
+    width: 39%;
+    background-color: rgb(0, 0, 0);
+}
+
+.regionFlacqMap, .regionPortLouis, .regionMahebourg, .regionReduit{
+    height: 100%;
+    width: 100%;
+    background-color: rgba(1, 1, 1, 0);
+}
+
+.branch-selector {
+    margin-top: 12%;
+    margin-left: 20%;
+    background-color: rgba(128, 128, 128, 0);
+    height: 40px; /* Set a fixed height */
+    width: 60%;
+    text-align: center;
+    z-index: 10; /* Bring it in front of other elements if necessary */
+    
+}
+
+.branch-selector label {
+    color: white;
+    font-size: 30px;
+}
+
+.branch-selector select {
+    background-color: rgba(255, 255, 255, 0);
+    height: 100%;
+    color: white;
+    font-size: 30px;
+    text-align: center;
+    font-style: italic;
+    font-weight: bold;
+    border: none;
+}
+
+.branch-selector option {
+    color: black;
+    font-size: 30px;
+    background-color: rgba(90, 90, 90, 0.685);
+}
+
+.mapcontainer > div {
+    display: none; /* Hide all maps by default */
+}
+
+.mapMauritius.active, .regionFlacqMap.active, .regionPortLouis.active, 
+.regionMahebourg.active, .regionReduit.active {
+    display: block; /* Show only the active map */
+}
+
+
+
+/*---------------------------------------------------------------*/
