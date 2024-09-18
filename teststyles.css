@@ -44,6 +44,10 @@ body{
     background-color: black;
     
 }
+
+h1{
+    color: white;
+}
 /*---------------------------------------*/
 
 
@@ -120,6 +124,11 @@ body{
     padding: 0;
     width: 65px;
     height: 65px;
+    transition: 0.5s all ease-in-out;
+}
+
+#loginicon:hover{
+    filter:blur(0.1rem);
 }
 
 /*---------------------------------------------*/
@@ -641,6 +650,244 @@ video {
     display: block; /* Show only the active map */
 }
 
+/*---------------------------------------------------------------*/
+
+
+/*-------------------------ACCOUNT SET-UP------------------------*/
+/*------------------------ ACCOUNT SIGN-IN-----------------------*/
+
+
+.setuppageLOGO{
+    height: 100px;
+    width: auto;
+    background-color: rgb(0, 0, 0);
+}
+
+.setuppageLOGOinterior{
+    height: 100%;
+    background-color: rgb(0, 0, 0);
+    display: flex;
+}
+
+.setuppageLOGOinterior img{
+    height: 100%;
+    width: auto;
+    display: flex;
+    
+}
+
+.logotext{
+    color: white;
+    margin-left: -25px;
+    font-size: 3.1rem;
+    font-style: italic;
+}
+
+.headertag1 h1{
+    margin-top: 1%;
+}
+
+.sign-up-box{
+    margin: 0 auto;
+    height: auto;
+    width: 50%;
+    background-color: rgb(3, 3, 3);
+    border-radius: 50px;
+}
+
+.sign-up-box input{
+    margin-left: 25%;
+    height: 35px;
+    width: 50%;
+    margin-bottom: 15px;
+    background-color: #333;
+    border-radius: 10px;
+    border: none;
+    color: white;
+}
+
+.sign-up-box input[type="date"]{
+    color: #ffffff;
+}
+
+.sign-up-box label{
+    margin-left: 25%;
+    font-size: 1.5rem;
+    color: white;
+}
+
+.sign-up-box p{
+    text-align: center;
+}
+
+.sign-up-box input[type="submit"]{
+    height: 50px;
+    width: 25%;
+    margin-left: 35%;
+    color: white;
+    transition: 0.2s all ease-in-out;
+}
+
+.sign-up-box input[type="submit"]:hover{
+    color:black;
+    background-color: white;
+    font-size: large;
+}
+
+.sign-up-box a{
+    font-style: italic;
+    color: #00ffdd;
+}
 
 
 /*---------------------------------------------------------------*/
+
+
+
+/*-------------------------PRODUCT WEBPAGE-----------------------*/
+
+.product-container{
+    display: flex;
+    margin-top: 7.5%;
+    height: 100%;
+    width: 100%;
+    background-color: rgb(0, 0, 0);
+}
+
+.part-container{
+    padding-top: 0;
+    padding-bottom: 0;
+    margin-left: 10%;
+    height: 100%;
+    width: 20%;
+    background-color: rgb(148, 143, 143);
+    display: flex;
+    border: 0;
+    transition: 0.2s all ease-in-out;
+}
+
+.part-container img{
+    height: 100%;
+    width: 100%;
+}
+
+.part-container:hover{
+    
+    padding-top: 2px;
+    padding-bottom: 2px;
+    background-color: white;
+}
+
+.part-details{
+    
+    margin-top: 20%;
+    height: 100px;
+    width: 20%;
+    background-color: rgba(255, 0, 0, 0);
+    position: absolute;
+}
+
+.part-details p{
+    text-align: center;
+    font-size: 25px;
+    margin: 0;
+}
+
+
+.part-details a{
+    text-decoration: none;
+}
+
+
+.product-price{
+    color: white;
+    text-align: center;
+    font-size: 30px;
+    background-color: rgba(128, 128, 128, 0);
+    width: auto;
+ }
+
+.buttons{
+    margin: 0 auto;
+    height: auto;
+    width: 80%;
+    background-color: rgba(0, 0, 255, 0);
+    display: flex;
+    justify-content: space-between;
+}
+
+.buttons input[value="Buy"]{
+    height: 35px;
+    width: 90px;
+    border-radius: 10px;
+    border: none;
+    color: white;
+    background-color: rgb(69, 69, 69);
+    transition: 0.35s all ease-in-out;
+    font-size: 20px;
+}
+
+.buttons input[value="Cart"]{
+    height: 35px;
+    width: 90px;
+    border-radius: 10px;
+    border: none;
+    color: white;
+    background-color: rgb(69, 69, 69);
+    transition: 0.35s all ease-in-out;
+    font-size: 20px;
+}
+
+.buttons input[value="Buy"]:hover,
+ .buttons input[value="Cart"]:hover{
+    color: black;
+    background-color: white;
+ }
+
+
+
+
+ .part-video-container{
+    padding: 0;
+    margin-top: 0;
+    color: white;
+    height: 25%;
+    width:50%;
+    background-color: rgba(206, 30, 30, 0);
+ }
+
+ .part-video-container video{
+    height: auto;
+    width: 100%;
+ }
+
+ .part-video-container p{
+    margin-left: 40%;
+    font-size: 25px;
+ }
+
+ .controls {
+    bottom: 175px; /* Adjust as needed */
+    width: 100%;
+    margin-left: 30%;
+}
+
+#seek-bar {
+    width: 30%;
+    -webkit-appearance: none;
+    appearance: none;
+    background: #ff0000; /* Red line */
+    height: 5px;
+    cursor: pointer;
+}
+
+#seek-bar::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 15px;
+    height: 15px;
+    background: #fff;
+    border-radius: 50%;
+    cursor: pointer;
+}
+

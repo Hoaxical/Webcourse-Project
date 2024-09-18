@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Armware</title>
+
+    <link rel="icon" type="image/png" href="images/ArmwareLogo.png">
+
+    <link rel="stylesheet" href="teststyles.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=League+Spartan:wght@100..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Tomorrow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bruno+Ace+SC&family=Tomorrow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+    
+
+    <header>
+    
+        <div class="navbarExterior">
+            <a href="armwareHomepage.html"><img src="images/ArmwareLogo.png" 
+                id="logo" alt="ArmWare logo">
+            </a>
+    
+                    <div class="navbarInterior">
+    
+                        <ul class="league-spartan">
+                            <li><a href="Products.html">Products</a></li>
+                            <li><a href="NearbyRetailers.html">Nearby Retailers</a></li>
+                            <li><a href="MatchSpecs.html">MatchSpecs</a></li>
+                            <li><a href="AboutUs.html">About Us</a></li>
+    
+                            <div class="logincontainer">
+                                <a href="armwareAccountSetup.html"><img src="images/loginICON.png" id="loginicon" alt="Login"></a>
+                                
+                            </div>
+    
+                        </ul>
+    
+                    </div>
+            
+        </div>
+    
+    </header>
+
+
+<!-------------------------------------------------------------------------------------->
+<!-------------------------------------------------------------------------------------->
+<h1 class="bebas-neue-regular" style="text-shadow: -1px -1px 5px rgba(255,255,255,50);">ArmWare Supreme AX 6090</h1>
+
+<div class="part-video-container">
+    
+    <video src="GPUviews/0001-0125.mkv" alt="video of gpu" id="video"></video>
+
+        
+    <div class="controls">
+        <input type="range" id="seek-bar" value="0">
+    </div>
+<p class="anton-regular">360° view</p>
+
+</div>
+
+
+<script>
+
+const video = document.getElementById('video');
+const seekBar = document.getElementById('seek-bar');
+
+video.addEventListener('timeupdate', () => {
+    const value = (100 / video.duration) * video.currentTime;
+    seekBar.value = value;
+});
+
+seekBar.addEventListener('input', () => {
+    const time = (seekBar.value / 100) * video.duration;
+    video.currentTime = time;
+});
+
+</script>
+
+
+</body>
+
+</html>

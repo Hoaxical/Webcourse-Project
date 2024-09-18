@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="icon" type="image/png" href="images/ArmwareLogo.png">
+
+    <link rel="stylesheet" href="teststyles.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=League+Spartan:wght@100..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Tomorrow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bruno+Ace+SC&family=Tomorrow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+    
+    <title>Account Set Up</title>
+</head>
+<body>
+
+    <div class="setuppageLOGO">
+
+        <div class="setuppageLOGOinterior">
+
+           <img src="images/ArmwareLogo.png">
+
+            <div class="logotext anton-regular">
+                <a href="armwareHomepage.html" style="color: white; text-decoration: none;">RMWARE</a>
+            </div>
+
+        </div>
+
+    </div>
+    
+    <div class="headertag1">
+        <h1 class="league-spartan">Create Your Armware Account</h1>
+    </div>
+
+    <div class="sign-up-box">
+
+        <form name="signup" action="checkregistration.php" method="post">
+
+            <label for="fname" class="tomorrow-regular">First Name</label><br>
+            <input type="text" id="SignUp-fname" name="fname" required onchange="return fnamecheck()"><br>
+        
+            <label for="lname" class="tomorrow-regular">Last Name</label><br>
+            <input type="text" id="SignUp-lname" name="lname" required onchange="return lnamecheck()"><br>
+        
+            <label for="Usrname" class="tomorrow-regular">Username</label>
+            <input type="text" id="SignUp-Usrname" name="username" required minlength="4" maxlength="20" onchange="return UsernameCheck()"><br>
+        
+            <label for="emailaddress" class="tomorrow-regular">Email address</label><br>
+            <input type="email" id="SignUp-emailaddress" name="email" placeholder="Example: armware@gmail.com" required pattern=".+@.+\..+"><br>
+        
+            <label for="dateofbirth" class="tomorrow-regular">Date of Birth</label><br>
+            <input type="date" id="SignUp-dateofbirth" name="dob" placeholder="dd/mm/yyyy" required><br>
+        
+            <label for="password" class="tomorrow-regular">Password</label><br>
+            <input type="password" id="SignUp-password" name="password" placeholder="Minimum 8 characters" required minlength="8"><br>
+
+            <label for="confirm-password" class="tomorrow-regular">Confirm Password</label><br>
+            <input type="password" id="SignUp-confirmpassword" name="confirm-password" required onchange="return checkpassword()">
+
+
+            <p>By clicking 'Sign Up', you agree to all <a href="armwaresignupTermsConditions.html">Terms and conditions</a> of ArmWare.</p>
+            
+            <input type="submit" value="Sign Up" id="SignUp-button">
+        
+            <p style="font-size: 20px;">Already have an account? Click <a href="armwaresignIn.html">Sign In</a></p>
+        
+        </form>
+        
+    </div>
+
+   
+    <script>
+        function fnamecheck() {
+            var fname = document.getElementById('SignUp-fname').value;
+            if (fname.length === 0) {
+                alert("First name invalid");
+                return false;
+            }
+            return true;
+        }
+    
+        function lnamecheck() {
+            var lname = document.getElementById('SignUp-lname').value;
+            if (lname.length === 0) {
+                alert("Last name invalid");
+                return false;
+            }
+            return true;
+        }
+    
+        function UsernameCheck() {
+            var username = document.getElementById('SignUp-Usrname').value;
+            var specialcharacters = /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]+/;
+            
+            if (specialcharacters.test(username)) {
+                alert("Username cannot contain special characters");
+                return false;
+            }
+            return true;
+        }
+
+        function checkpassword() {
+        var confirmpassword = document.getElementById('SignUp-confirmpassword').value;
+        var password = document.getElementById('SignUp-password').value;
+
+        if (confirmpassword != password) {
+            alert("Passwords do not match");
+            document.getElementById('SignUp-confirmpassword').value = "";
+            return false;
+        }
+        return true;
+    }
+       
+    </script>
+    
+</body>
+
+</html>
