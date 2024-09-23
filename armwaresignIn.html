@@ -50,9 +50,33 @@
             <input type="email" id="SignIn-emailaddress" name="emailaddress"><br>
 
             <label for="password" class="tomorrow-regular">Password</label><br>
-            <input type="password" id="SignIn-password" name="password"><br>
+            <input type="password" id="SignIn-password" name="password">
+            <button type="button" id="toggle-pass">Hide/See</button><br>
 
             <input type="submit" value="Sign In" id="SignIn-button">
         
             </form>
+
+            <p><a href="armwareAccountSetup.html"  style="font-size: 20px;">Click here to create new Account! </a></p>
+        
     </div>
+
+    <script>
+        
+        document.getElementById('toggle-pass').addEventListener('click', function(){
+            const pass = document.getElementById('SignIn-password');
+
+            if (pass.type === 'password')
+                {
+                    pass.type = 'text';
+                }
+            else
+                {
+                    pass.type = 'password';
+                }
+        })
+    </script>
+
+</body>
+
+</html>

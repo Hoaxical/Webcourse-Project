@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Armware</title>
+
+    <link rel="icon" type="image/png" href="images/ArmwareLogo.png">
+
+    <link rel="stylesheet" href="teststyles.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=League+Spartan:wght@100..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Tomorrow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bruno+Ace+SC&family=Tomorrow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+   <style>
+    
+        #MatchSpecs-table{
+           border: none;
+            margin-top: 8%;
+            height: auto;
+            width: 80%;
+            margin-left: 10%;
+        }
+
+        #MatchSpecs-table th, #MatchSpecs-table tr{
+            color: white;
+            text-align: center;
+        }
+
+        #MatchSpecs-table select{
+            height: 100px;
+            width: 40%;
+            background-color: transparent;
+            color: white;
+            text-align: center;
+            border: none;
+            font-size: larger;
+        }
+
+        #MatchSpecs-table option{
+            background-color: black;
+            color: white;
+            
+        }
+
+        td{
+            border-top: 1px solid rgb(119, 118, 118);
+            font-size: 20px;
+        }
+
+        #total_price, #total_wattage, #txt_total{
+            font-size: 40px;
+        }
+
+        #button-toCart{
+            margin-left: 40%;
+            margin-top: 2.5%;
+            height: 40px;
+            width: auto;
+            font-size: 30px;
+            border-radius: 10px;
+            font-weight: bolder;
+            color: white;
+            background-color: black;
+            border: 2px solid rgb(255,255,255);
+            transition: 0.25s all ease-in-out;
+        }
+
+        #button-toCart:hover{
+            background-color: white;
+            border: 2px solid rgb(0,0,0);
+            color: black;
+            cursor: pointer;
+        }
+
+   </style>
+</head>
+
+<body>
+    
+
+    <header>
+    
+        <div class="navbarExterior">
+            <a href="armwareHomepage.html">
+                <img src="images/ArmwareLogo.png" id="logo" alt="ArmWare logo">
+            </a>
+    
+                    <div class="navbarInterior">
+    
+                        <ul class="league-spartan">
+                            <li><a href="Products.html">Products</a></li>
+                            <li><a href="NearbyRetailers.html">Nearby Retailers</a></li>
+                            <li><a href="MatchSpecs.html">MatchSpecs</a></li>
+                            <li><a href="AboutUs.html">About Us</a></li>
+                            
+                            <div class="logincontainer">
+                                <a href="armwaresignIn.html"><img src="images/loginICON.png" id="loginicon" alt="Login"></a>
+                                
+                            </div>
+    
+                        </ul>
+    
+                    </div>
+            
+        </div>
+    
+    </header>
+
+    <form name="partslist" action="CheckCart.php" method="post">
+        <table id="MatchSpecs-table">
+
+            <th colspan="4" style="height: 50px; font-size: 30px;" class="league-spartan">Choose Your Parts</th>
+            
+            <tr class="tomorrow-regular">
+                <td width="20%" id="row_enlarger">Parts</td>
+                <td width="30%">Selection</td>
+                <td width="25%">Price ($)</td>
+                <td width="25%">Wattage (W)</td>
+            </tr>
+
+        
+
+            <tr>
+                <td width="20%" class="anton-regular">GPU</td>
+                <td width="30%">
+                    <select id="gpu-select" onchange="updatePart('gpu')">
+                        <option value="Select">GPU</option>
+                        <option value="Gpu1">A 5060</option>
+                        <option value="Gpu2">V 1090 Xi</option>
+                        <option value="Gpu3">AX 6090</option>
+                    </select>
+                    
+                </td>
+                <td width="25%" id="gpu-price"></td>
+                <td width="25%" id="gpu-wattage"></td>
+            </tr>
+
+            <tr>
+                <td width="20%" class="anton-regular">Processor</td>
+                <td width="30%">
+                    <select id="cpu-select" onchange="updatePart('cpu')">
+                        <option value="Select">CPU</option>
+                        <option value="cpu1">Dominator5-6500</option>
+                        <option value="cpu2">Dominator5-6800X4D</option>
+                        <option value="cpu3">Dominator9-9950X</option>
+                    </select>
+                    
+                </td>
+                <td width="25%" id="cpu-price"></td>
+                <td width="25%" id="cpu-wattage"></td>
+            </tr>
+
+            <tr>
+                <td width="20%" class="anton-regular">Motherboard</td>
+                <td width="30%">
+                    <select id="mobo-select" onchange="updatePart('mobo')">
+                        <option value="Select">Motherboard</option>
+                        <option value="mobo1">ArchNemesis-X69</option>
+                        
+                    </select>
+                    
+                </td>
+                <td width="25%" id="mobo-price"></td>
+                <td width="25%" id="mobo-wattage"></td>
+            </tr>
+
+            <tr>
+                <td width="20%" class="anton-regular">Others</td>
+                <td width="30%">
+                    <select id="others-select" onchange="updatePart('others')">
+                        <option value="Select">Keyboard, Mouse, Headset</option>
+                        <option value="keyboard">ProtoType-K800</option>
+                        <option value="headset">Reality Sound X80-K12</option>
+                    </select>
+                    
+                </td>
+                <td width="25%" id="others-price"></td>
+                <td width="25%" id="others-wattage"></td>
+            </tr>
+
+            <tr>
+                <td colspan="2" style="height: 30px;" id="txt_total">TOTAL</td>  
+                <td  id="total_price"></td>
+                <td  id="total_wattage"></td>
+            </tr>
+
+
+        </table>
+
+        <button type="button" id="button-toCart" value="SpecsToCart" class="league-spartan">Add to Cart</button>
+    </form>
+
+    
+<!-------------------------------------------------------------------------------------------->
+<!-------------------------footer------------------------------------------------------------->
+
+
+<footer>
+    <div class="footerheader">
+        <p></p>
+        <div class="footerbar">
+        
+            <ul>
+                <li>Quick Links</li>
+                <li><a href="armwareHomepage.html">Homepage</a></li>
+                <li><a href="Products.html">Products</a></li>
+                <li><a href="NearbyRetailers">Nearby Retailers</a></li>
+                <li><a href="MatchSpecs.html">MatchSpecs</a></li>
+                <li><a href="AboutUs.html">About Us</a></li>
+            </ul>
+
+            <ul>
+                <li>Socials</li>
+                <li><a href="https://x.com/home">X (Twitter)</a></li>
+                <li><a href="https://www.youtube.com/">YouTube</a></li>
+
+            </ul>
+            <p>
+        </div>
+    </div>
+</footer>
+
+
+
+    <script>
+        const PartsData = {
+            gpulist: {
+                "Gpu1": { price: 500, wattage: 150 },
+                "Gpu2": { price: 750, wattage: 300 },
+                "Gpu3": { price: 1500, wattage: 600 },
+            },
+            mobolist: {
+                "mobo1": { price: 350, wattage: 400 },
+                
+            },
+            cpulist: {
+                "cpu1": { price: 90, wattage: 35 },
+                "cpu2": { price: 180, wattage: 80 },
+                "cpu3": { price: 350, wattage: 60 },
+            },
+            otherslist: {
+                "keyboard": { price: 35, wattage: 20 },
+                "headset": { price: 50, wattage: 5 },
+            }
+        };
+    
+        function updatePart(partType) {
+            const selectElement = document.getElementById(`${partType}-select`);
+            const selectedPart = selectElement.value;
+            const priceElement = document.getElementById(`${partType}-price`);
+            const wattageElement = document.getElementById(`${partType}-wattage`);
+    
+            if (PartsData[`${partType}list`][selectedPart]) {
+                priceElement.textContent = PartsData[`${partType}list`][selectedPart].price;
+                wattageElement.textContent = PartsData[`${partType}list`][selectedPart].wattage;
+                calculateTotal();
+            }
+        }
+    
+        function calculateTotal() {
+            let totalPrice = 0;
+            let totalWattage = 0;
+
+            // Calculate total price and wattage for all parts
+            ['gpu', 'cpu', 'mobo', 'others'].forEach(partType => {
+                const selectedPart = document.getElementById(`${partType}-select`).value;
+                if (PartsData[`${partType}list`][selectedPart]) {
+                    totalPrice += PartsData[`${partType}list`][selectedPart].price;
+                    totalWattage += PartsData[`${partType}list`][selectedPart].wattage; // Accumulate wattage
+                }
+            });
+
+            // Update totals in the table
+            document.getElementById('total_price').textContent = totalPrice;
+            document.getElementById('total_wattage').textContent = totalWattage; // Update total wattage
+        }
+
+        
+    
+        window.onload = calculateTotal;
+    </script>
+    
+
+</body>
+
+</html>

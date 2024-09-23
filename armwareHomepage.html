@@ -36,9 +36,10 @@
                             <li><a href="NearbyRetailers.html">Nearby Retailers</a></li>
                             <li><a href="MatchSpecs.html">MatchSpecs</a></li>
                             <li><a href="AboutUs.html">About Us</a></li>
-    
+                            
+                            
                             <div class="logincontainer">
-                                <a href="armwareAccountSetup.html"><img src="images/loginICON.png" id="loginicon" alt="Login"></a>
+                                <a href="armwaresignIn.html"><img src="images/loginICON.png" id="loginicon" alt="Login"></a>
                                 
                             </div>
     
@@ -49,6 +50,14 @@
         </div>
     
     </header>
+
+    <div class="account-box">
+        
+        <input type="button" value="Login" id="accountbox-LOGIN-button" onclick="window.location.href='armwaresignIn.html'">
+
+        <input type="button" value="Sign Up" id="accountbox-SINGUP-button" onclick="window.location.href='armwareAccountSetup.html'">
+
+    </div>
 
 
 <!-------------------------------------------------------------------------------------->
@@ -68,22 +77,23 @@
     <div id="slide2" class="news-content">
         <img src="images/GPUs.png" alt="homepage img">
         <div class="whitebox-text">
-            <p class="anton-regular">Introducing GPUs</p>
-            <p class="tomorrow-regular">Our high quality GPUs.</p>
-            <p class="tomorrow-regular">We make the best GPUs</p>
-            <p class="tomorrow-regular">Max out your game performance (framerates). 4K 120 FPS MINIMUM GURANTEED.
-            <a href="GPUs.html" alt="GPU page"><input type="button" value="Read More"></a></p>   
+            <p class="anton-regular">Introducing AX 6090</p>
+            <p class="tomorrow-regular">Immerse yourself in the cutting-edge technology that powers the ArmWare Supreme AX 6090 50GB GDDRX. OverClocked Edition.</p>
+            <p class="tomorrow-regular">Engineered to break limits and push performance to extremes, the AX 6090 
+                introduces speeds and technologies that seem impossible.
+            <a href="A6090.html" alt="GPU page"><input type="button" value="Read More"></a></p>   
         </div>
     </div>
 
     <div id="slide3" class="news-content">
         <img src="images/mobo.png" alt="homepage img">
         <div class="whitebox-text">
-            <p class="anton-regular">Introducing Motherboards</p>
-            <p class="tomorrow-regular">Our high quality Motherboard.</p>
-            <p class="tomorrow-regular">We make the best Universal Motherboard</p>
-            <p class="tomorrow-regular">Fits all types of components such as CPU, Ram, fans, AIOs and everything else! It comes with the most advanced software you will ever need for customization and modifications!
-            <a href="motherboards.html" alt="motherboard page"><input type="button" value="Read More"></a></p>   
+            <p class="anton-regular">Introducing ArchNemesis X69</p>
+            <p class="tomorrow-regular">The Arch Nemesis X69 motherboard is a masterwork of engineering, built to handle the most cutting-edge
+                technologies with ease. At its core is the Dominator 9000 socket, designed specifically to accommodate the most
+                 advanced CPUs like the Dominator 5 6500, providing maximum compatibility and future-proofing for high-performance builds.
+            
+            <a href="ArchNemesis-X69.html" alt="motherboard page"><input type="button" value="Read More"></a></p>   
         </div>
     </div>
 </div>
@@ -158,7 +168,7 @@
         }
     
         function showLastSlide() {
-            const prevIndex = (currentIndex - 1 + slides.length) % slides.length;>
+            const prevIndex = (currentIndex - 1 + slides.length) % slides.length;
             showSlide(prevIndex);
         }
     
@@ -172,6 +182,8 @@
         setInterval(showNextSlide, 7500); // 10000 milliseconds = 10 seconds
     });
 </script>
+
+
 
 </body>
 </html>

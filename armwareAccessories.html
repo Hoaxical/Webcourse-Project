@@ -50,41 +50,64 @@
     
     </header>
 
+    <div class="product-container">
+        
+        <a href="ProtoType-K800.html"><div class="part-container">
+            <img src="images/keyboardFrontimage.png" alt="keyboard"></a>
+            
+            <div class="part-details">
+                <p class="bebas-neue-regular">ProtoType K800</p>
 
-<!-------------------------------------------------------------------------------------->
-<!-------------------------------------------------------------------------------------->
-<h1 class="bebas-neue-regular" style="text-shadow: -1px -1px 5px rgba(255,255,255,50);">ArmWare Supreme AX 6090</h1>
+                <div class="product-price">
+                    $35
+                </div>
 
-<div class="part-video-container">
-    
-    <video src="GPUviews/0001-0125.mkv" alt="video of gpu" id="video"></video>
+                <div class = "buttons">
+
+                    <a href="ProtoType-K800.html">
+                        <input type="button" value="Buy" id="buy-keyboard"
+                        class="league-spartan">
+                    </a>
+
+                    <input type="button" value="Cart" id="cart-keyboard"
+                    class="league-spartan">
+
+                </div>
+            </div>
+
+        </div>
+
+
+        <a href="Reality-Sound-X80-K12.html"><div class="part-container">
+            <img src="images/HeadsetImage.png" alt="Headset"></a>
+            
+            <div class="part-details">
+                <p class="bebas-neue-regular">Reality Sound X80-K12</p>
+
+                <div class="product-price">
+                    $50
+                </div>
+
+                <div class = "buttons">
+
+                    <a href="Reality-Sound-X80-K12.html">
+                        <input type="button" value="Buy" id="buy-headset"
+                        class="league-spartan">
+                    </a>
+
+                    <input type="button" value="Cart" id="cart-headset"
+                    class="league-spartan">
+
+                </div>
+            </div>
+
+        </div>
+
+       
 
         
-    <div class="controls">
-        <input type="range" id="seek-bar" value="0">
     </div>
-<p class="anton-regular">360° view</p>
-
-</div>
-
-
-<script>
-
-const video = document.getElementById('video');
-const seekBar = document.getElementById('seek-bar');
-
-video.addEventListener('timeupdate', () => {
-    const value = (100 / video.duration) * video.currentTime;
-    seekBar.value = value;
-});
-
-seekBar.addEventListener('input', () => {
-    const time = (seekBar.value / 100) * video.duration;
-    video.currentTime = time;
-});
-
-</script>
-
+    
 
 </body>
 

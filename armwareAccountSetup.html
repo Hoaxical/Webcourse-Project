@@ -59,10 +59,12 @@
             <input type="date" id="SignUp-dateofbirth" name="dob" placeholder="dd/mm/yyyy" required><br>
         
             <label for="password" class="tomorrow-regular">Password</label><br>
-            <input type="password" id="SignUp-password" name="password" placeholder="Minimum 8 characters" required minlength="8"><br>
+            <input type="password" id="SignUp-password" name="password" placeholder="Minimum 8 characters" required minlength="8">
+            <button type="button" id="toggle-pass1">Hide/See</button><br>
 
             <label for="confirm-password" class="tomorrow-regular">Confirm Password</label><br>
             <input type="password" id="SignUp-confirmpassword" name="confirm-password" required onchange="return checkpassword()">
+            <button type="button" id="toggle-pass2">Hide/See</button><br>
 
 
             <p>By clicking 'Sign Up', you agree to all <a href="armwaresignupTermsConditions.html">Terms and conditions</a> of ArmWare.</p>
@@ -118,6 +120,38 @@
         return true;
     }
        
+    </script>
+
+    <script>
+
+        document.getElementById('toggle-pass1').addEventListener('click', function(){
+            const pass = document.getElementById('SignUp-password');
+           
+
+            if (pass.type === 'password')
+                {
+                    pass.type = 'text';                    
+                }
+            else
+                {
+                    pass.type = 'password';
+                }
+        });
+
+        document.getElementById('toggle-pass2').addEventListener('click', function(){
+            const confirmpass = document.getElementById('SignUp-confirmpassword');
+
+            if (confirmpass.type === 'password')
+                {
+                    confirmpass.type = 'text';
+                }
+            else
+                {
+                    confirmpass.type = 'password';
+                }
+        })
+
+
     </script>
     
 </body>
