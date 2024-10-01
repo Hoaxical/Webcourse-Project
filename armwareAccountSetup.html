@@ -103,6 +103,7 @@
             
             if (specialcharacters.test(username)) {
                 alert("Username cannot contain special characters");
+                username = "";
                 return false;
             }
             return true;

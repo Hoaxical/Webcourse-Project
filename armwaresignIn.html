@@ -41,16 +41,16 @@
 
     <div class="sign-up-box">
 
-        <form name="signup" action="checkregistration.php" method="post">
+        <form name="signIn" action="checkregistration.php" method="post">
 
             <label for="Usrname" class="tomorrow-regular">Username</label>
-            <input type="text" id="SignIn-Usrname" name="username"><br>
+            <input type="text" id="SignIn-Usrname" name="username" required><br>
 
             <label for="emailaddress" class="tomorrow-regular">Email address</label><br>
-            <input type="email" id="SignIn-emailaddress" name="emailaddress"><br>
+            <input type="email" id="SignIn-emailaddress" name="emailaddress" required><br>
 
             <label for="password" class="tomorrow-regular">Password</label><br>
-            <input type="password" id="SignIn-password" name="password">
+            <input type="password" id="SignIn-password" name="password" required>
             <button type="button" id="toggle-pass">Hide/See</button><br>
 
             <input type="submit" value="Sign In" id="SignIn-button">
@@ -75,6 +75,7 @@
                     pass.type = 'password';
                 }
         })
+
     </script>
 
 </body>
