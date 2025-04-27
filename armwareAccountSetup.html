@@ -28,7 +28,7 @@
            <img src="images/ArmwareLogo.png">
 
             <div class="logotext anton-regular">
-                <a href="armwareHomepage.html" style="color: white; text-decoration: none;">RMWARE</a>
+                <a href="index.php" style="color: white; text-decoration: none;">RMWARE</a>
             </div>
 
         </div>
@@ -41,7 +41,7 @@
 
     <div class="sign-up-box">
 
-        <form name="signup" action="checkregistration.php" method="post">
+        <form name="signup" action="userregistration.php" method="post">
 
             <label for="fname" class="tomorrow-regular">First Name</label><br>
             <input type="text" id="SignUp-fname" name="fname" required onchange="return fnamecheck()"><br>
@@ -53,7 +53,7 @@
             <input type="text" id="SignUp-Usrname" name="username" required minlength="4" maxlength="20" onchange="return UsernameCheck()"><br>
         
             <label for="emailaddress" class="tomorrow-regular">Email address</label><br>
-            <input type="email" id="SignUp-emailaddress" name="email" placeholder="Example: armware@gmail.com" required pattern=".+@.+\..+"><br>
+            <input type="email" id="SignUp-emailaddress" name="email" placeholder="Example: armware@gmail.com" required pattern=".+@.+\..+" onchange="EmailCheck()"><br>
         
             <label for="dateofbirth" class="tomorrow-regular">Date of Birth</label><br>
             <input type="date" id="SignUp-dateofbirth" name="dob" placeholder="dd/mm/yyyy" required><br>
@@ -77,83 +77,128 @@
         
     </div>
 
-   
-    <script>
-        function fnamecheck() {
-            var fname = document.getElementById('SignUp-fname').value;
-            if (fname.length === 0) {
-                alert("First name invalid");
-                return false;
-            }
-            return true;
-        }
-    
-        function lnamecheck() {
-            var lname = document.getElementById('SignUp-lname').value;
-            if (lname.length === 0) {
-                alert("Last name invalid");
-                return false;
-            }
-            return true;
-        }
-    
-        function UsernameCheck() {
-            var username = document.getElementById('SignUp-Usrname').value;
-            var specialcharacters = /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]+/;
-            
-            if (specialcharacters.test(username)) {
-                alert("Username cannot contain special characters");
-                username = "";
-                return false;
-            }
-            return true;
-        }
+    <!-- JQuery CDN (Add before your script) -->
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 
-        function checkpassword() {
-        var confirmpassword = document.getElementById('SignUp-confirmpassword').value;
-        var password = document.getElementById('SignUp-password').value;
+<script>
+$(document).ready(function(){
 
-        if (confirmpassword != password) {
-            alert("Passwords do not match");
-            document.getElementById('SignUp-confirmpassword').value = "";
-            return false;
-        }
-        return true;
+// First Name Check
+function fnamecheck() {
+    var fname = $('#SignUp-fname').val();
+    if (fname.length === 0) {
+        alert("First name invalid");
+        return false;
     }
-       
-    </script>
+    return true;
+}
 
-    <script>
+// Last Name Check
+function lnamecheck() {
+    var lname = $('#SignUp-lname').val();
+    if (lname.length === 0) {
+        alert("Last name invalid");
+        return false;
+    }
+    return true;
+}
 
-        document.getElementById('toggle-pass1').addEventListener('click', function(){
-            const pass = document.getElementById('SignUp-password');
-           
+// Username Check (real-time)
+function UsernameCheck() {
+    var username = $('#SignUp-Usrname').val().trim();
+    var specialcharacters = /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]+/;
 
-            if (pass.type === 'password')
-                {
-                    pass.type = 'text';                    
+    if (specialcharacters.test(username)) {
+        alert("Username cannot contain special characters");
+        $('#SignUp-Usrname').val('');
+        return;
+    }
+
+    if (username !== '') {
+        $.ajax({
+            url: 'ajax/check_username.php',
+            method: 'POST',
+            data: { username: username },
+            success: function(response) {
+                if (response === 'taken') {
+                    alert('Username already exists. Please choose another.');
+                    $('#SignUp-Usrname').val('');
                 }
-            else
-                {
-                    pass.type = 'password';
-                }
+            }
         });
+    }
+}
 
-        document.getElementById('toggle-pass2').addEventListener('click', function(){
-            const confirmpass = document.getElementById('SignUp-confirmpassword');
+// Email Check (real-time)
+function EmailCheck() {
+    var email = $('#SignUp-emailaddress').val().trim();
+    var emailFormat = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    
+    if (!emailFormat.test(email)) {
+        alert('Invalid email format.');
+        $('#SignUp-emailaddress').val('');
+        return;
+    }
 
-            if (confirmpass.type === 'password')
-                {
-                    confirmpass.type = 'text';
+    if (email !== '') {
+        $.ajax({
+            url: 'ajax/check_email.php',
+            method: 'POST',
+            data: { email: email },
+            success: function(response) {
+                console.log('Server Response:', response); // Debugging
+                if (response === 'taken') {
+                    alert('Email is already registered. Please use another email.');
+                    $('#SignUp-emailaddress').val('');
                 }
-            else
-                {
-                    confirmpass.type = 'password';
-                }
-        })
+            }
+        });
+    }
+}
 
+// Password Match Check
+function checkpassword() {
+    var password = $('#SignUp-password').val();
+    var confirmpassword = $('#SignUp-confirmpassword').val();
 
-    </script>
+    if (password !== confirmpassword) {
+        alert("Passwords do not match");
+        $('#SignUp-confirmpassword').val('');
+        return false;
+    }
+    return true;
+}
+
+// Toggle password visibility
+$('#toggle-pass1').click(function() {
+    var passField = $('#SignUp-password');
+    if (passField.attr('type') === 'password') {
+        passField.attr('type', 'text');
+    } else {
+        passField.attr('type', 'password');
+    }
+});
+
+$('#toggle-pass2').click(function() {
+    var confirmPassField = $('#SignUp-confirmpassword');
+    if (confirmPassField.attr('type') === 'password') {
+        confirmPassField.attr('type', 'text');
+    } else {
+        confirmPassField.attr('type', 'password');
+    }
+});
+
+// Attach real-time validation (on blur)
+$('#SignUp-fname').on('blur', fnamecheck);
+$('#SignUp-lname').on('blur', lnamecheck);
+$('#SignUp-emailaddress').on('blur', EmailCheck);
+$('#SignUp-Usrname').on('blur', UsernameCheck);
+$('#SignUp-confirmpassword').on('blur', checkpassword);
+
+});
+
+</script>
+
     
 </body>
 

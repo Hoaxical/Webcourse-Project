@@ -20,12 +20,20 @@
 </head>
 
 <body>
+
+<?php
+session_start(); // Start the session
+
+// Check if the user is logged in
+$is_logged_in = isset($_SESSION["logged_in"]) && $_SESSION["logged_in"] === true;
+?>
+
     
 
     <header>
     
         <div class="navbarExterior">
-            <a href="armwareHomepage.html">
+            <a href="index.php">
                 <img src="images/ArmwareLogo.png" id="logo" alt="ArmWare logo">
             </a>
     
@@ -34,12 +42,12 @@
                         <ul class="league-spartan">
                             <li><a href="Products.html">Products</a></li>
                             <li><a href="NearbyRetailers.html">Nearby Retailers</a></li>
-                            <li><a href="MatchSpecs.html">MatchSpecs</a></li>
+                            <li><a href="Orders.php">Orders</a></li>
                             <li><a href="AboutUs.html">About Us</a></li>
                             
                             
                             <div class="logincontainer">
-                                <a href="armwaresignIn.html"><img src="images/loginICON.png" id="loginicon" alt="Login"></a>
+                                <a href="<?php echo $is_logged_in ? 'account.php' : 'armwaresignIn.html';?>"><img src="images/loginICON.png" id="loginicon" alt="Login"></a>
                                 
                             </div>
     
@@ -120,10 +128,10 @@
         
             <ul>
                 <li>Quick Links</li>
-                <li><a href="armwareHomepage.html">Homepage</a></li>
+                <li><a href="index.php">Homepage</a></li>
                 <li><a href="Products.html">Products</a></li>
                 <li><a href="NearbyRetailers">Nearby Retailers</a></li>
-                <li><a href="MatchSpecs.html">MatchSpecs</a></li>
+                <li><a href="Orders.php">Orders</a></li>
                 <li><a href="AboutUs.html">About Us</a></li>
             </ul>
 

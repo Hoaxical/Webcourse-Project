@@ -28,7 +28,7 @@
            <img src="images/ArmwareLogo.png">
 
             <div class="logotext anton-regular">
-                <a href="armwareHomepage.html" style="color: white; text-decoration: none;">RMWARE</a>
+                <a href="index.php" style="color: white; text-decoration: none;">RMWARE</a>
             </div>
 
         </div>
@@ -41,7 +41,7 @@
 
     <div class="sign-up-box">
 
-        <form name="signIn" action="checkregistration.php" method="post">
+        <form name="signIn" action="userlogin.php" method="post">
 
             <label for="Usrname" class="tomorrow-regular">Username</label>
             <input type="text" id="SignIn-Usrname" name="username" required><br>
@@ -61,21 +61,19 @@
         
     </div>
 
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
     <script>
-        
-        document.getElementById('toggle-pass').addEventListener('click', function(){
-            const pass = document.getElementById('SignIn-password');
-
-            if (pass.type === 'password')
-                {
-                    pass.type = 'text';
+        $(document).ready(function() {
+            $('#toggle-pass').click(function() {
+                const pass = $('#SignIn-password');
+                if (pass.attr('type') === 'password') {
+                    pass.attr('type', 'text');
+                } else {
+                    pass.attr('type', 'password');
                 }
-            else
-                {
-                    pass.type = 'password';
-                }
-        })
-
+            });
+        });
     </script>
 
 </body>

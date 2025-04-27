@@ -775,7 +775,7 @@ video {
     margin-left: 10%;
     height: 100%;
     width: 20%;
-    background-color: rgb(148, 143, 143);
+    background-color: rgba(148, 143, 143, 0);
     display: flex;
     
    
@@ -835,33 +835,6 @@ video {
     justify-content: space-between;
 }
 
-.buttons input[value="Buy"]{
-    height: 35px;
-    width: 90px;
-    border-radius: 10px;
-    border: none;
-    color: white;
-    background-color: rgb(69, 69, 69);
-    transition: 0.35s all ease-in-out;
-    font-size: 20px;
-}
-
-.buttons input[value="Cart"]{
-    height: 35px;
-    width: 90px;
-    border-radius: 10px;
-    border: none;
-    color: white;
-    background-color: rgb(69, 69, 69);
-    transition: 0.35s all ease-in-out;
-    font-size: 20px;
-}
-
-.buttons input[value="Buy"]:hover,
- .buttons input[value="Cart"]:hover{
-    color: black;
-    background-color: white;
- }
 
 
 
@@ -913,11 +886,12 @@ video {
 
 #part-name{
     position: absolute;
-    right: 10%;
-    top: 30%;
+    margin-top: -2%;
+    right: 25%;
     font-size: 30px;
-
 }
+
+
 .part-button{
     height: auto;
     width: 20%;
@@ -949,6 +923,73 @@ video {
     background-color: rgba(255, 0, 0, 0);
     margin: 0 auto;
 }
+
+/*-------------------------------------------------------*/
+
+
+/*------------------ACCOUNT PAGE-------------------------*/
+
+
+#account_information{
+    height: auto;
+    width: 80%;
+    background-color:rgba(25, 25, 25, 0.56);
+    color: white;
+    margin-left: 10%;
+    margin-top: 5%;
+    border-radius: 50px;
+}
+
+#AccountInformationsTable{
+    margin: 0 auto;
+    width: 80%;
+    height: 100%;
+}
+
+#AccountInformationsTable td, #AccountInformationsTable tr{
+    border: 1px solid rgba(99, 99, 99, 0.62);
+    border-radius: 30px;
+    padding: 10px;
+    height: 200px;
+}
+
+#AccountInformationsTable td input{
+    border: 1px solid rgb(49, 49, 49);
+    background-color: rgb(49, 49, 49);
+    color: white;
+    border-radius: 5px;
+    width: 45%; /* Ensures uniform width */
+    height: 25px;
+    margin-bottom: 10px; /* Adds space between input boxes */
+    font-size: 20px;
+}
+
+#AccountInformationsTable td {
+text-align: center; /* Centers text horizontally */
+vertical-align: middle; /* Centers content vertically */
+}
+
+
+textarea{
+    border: 1px solid rgb(49, 49, 49);
+    background-color: rgb(49, 49, 49);
+    resize: none;
+    color: white;
+    font-size: 20px;
+    padding: 10px;
+    border-radius: 25px;
+}
+
+#accountsreview_button{
+    border-radius: 5px;
+    background-color: rgba(0, 0, 0, 0);
+    margin-top: 4.25%;
+    display: flex;
+
+}
+
+
+
 
 /*--------------------------------------------------*/
 
@@ -1117,7 +1158,7 @@ video {
         width: 50%;
     }
 
-    #MatchSpecs-table{
+    #Orders-table{
         margin-top: 75px;
         margin-left: 10px;
     }
@@ -1127,7 +1168,7 @@ video {
         font-size: 15px;
     }
 
-    #MatchSpecs-table select{
+    #Orders-table select{
         width: auto;
         font-size: 10px;
     }
